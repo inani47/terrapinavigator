@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/inani47/terrapinavigator.svg?branch=master)](https://travis-ci.org/inani47/terrapinavigator)
 # terrapinavigator - Navigation and Mapping with TurtleBot 
 
 ## Overview
