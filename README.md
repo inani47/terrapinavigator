@@ -1,4 +1,4 @@
-# terrapinavigator - Simulated Navigation and Mapping with TurtleBot 
+# terrapinavigator - Navigation and Mapping with TurtleBot 
 
 ## Overview
 This project aims to implement a simulated TurtleBot capable of navigating and mapping. The robotic system aims to be capable of:
@@ -74,9 +74,12 @@ source /opt/ros/kinetic/setup.bash
 
 MORE TO COME
 
-## SIP Logs
+## SIP & Sprint Logs
 
-TODO
+Link to SIP Planning: [SIP Logs](https://docs.google.com/spreadsheets/d/1yglRR3HuQ96tQThB4AsiW9a2gjR8kYN-1Wcj_BuyqH0/edit?usp=sharing)
+Link to Sprint Planning Notes: [Sprint Notes](https://docs.google.com/document/d/1rXK6foPKe-qIE33yUQAk5DwvEb2_a-keuWt45c4f9LM/edit)
+
+
 
 ## Build Steps
 
