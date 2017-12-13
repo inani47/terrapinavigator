@@ -2,7 +2,7 @@ sudo: required
 dist: trusty
 services:
   - docker
-language: generic
+language: cpp
 compiler:
   - gcc
 notifications:
