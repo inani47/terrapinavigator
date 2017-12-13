@@ -1,0 +1,13 @@
+<launch>
+
+   <arg name="rec" default="false"/>
+
+   <include file="$(find turtlebot_gazebo)/launch/turtlebot_world.launch">
+	<arg name="world_file" value="$(find terrapinavigator)/world/demo1.world"/>
+   </include>
+
+   <node name="terrapinavigator" pkg="terrapinavigator" type="terrapinavigator" output="screen"/>
+
+   <node name="record" pkg="rosbag" type="record" args="-a -O $(find terrapinavigator)/results/recording.bag -x /camera/(.*)" if="$(arg rec)"/>
+
+</launch>
