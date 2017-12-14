@@ -57,7 +57,7 @@
 int main(int argc, char **argv) {
   ros::init(argc, argv, "terrapinavigator");
   ros::NodeHandle n;
-Turtle terrapin;
+  Turtle terrapin = Turtle();
   // sleep for 15 seconds while gazebo starts
   ros::Duration(15).sleep();
 

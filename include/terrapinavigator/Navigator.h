@@ -45,30 +45,24 @@
 #include "sensor_msgs/LaserScan.h"
 #include "geometry_msgs/Twist.h"
 
-/**
- * @brief      Class for walker.
- */
 class Navigator {
  public:
   Navigator();
-  /**
-   * @brief      Callback for the subscriber. Finds min range.
-   *
-   * @param      input  Message received over /scan topic
-   *
-   * @return     none
-   */
-  void callback(const sensor_msgs::LaserScan::ConstPtr& input);
-  geometry_msgs::Twist dir();
+  float getObstDist();
+  bool getRotateFlag();
   void setRotateFlag();
-  void timerCallback(const ros::TimerEvent& event);
+  void ScanCallback(const sensor_msgs::LaserScan::ConstPtr& input);
+  void RotatetimerCallback(const ros::TimerEvent& event);
+  geometry_msgs::Twist dir();
+
+
+
  private:
   float obstDist;
   bool rotateFlag;
-  geometry_msgs::Twist action;
   int rotateCount;
-};
-//  End of class
+  geometry_msgs::Twist action;
 
+};
 #endif // INCLUDE_NAVIGATOR_H_
 

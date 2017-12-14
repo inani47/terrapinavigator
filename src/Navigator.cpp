@@ -43,7 +43,28 @@
 #include "geometry_msgs/Twist.h"
 #include "terrapinavigator/Navigator.h"
 
-void Navigator::callback(const sensor_msgs::LaserScan::ConstPtr& input) {
+
+
+Navigator::Navigator()
+    : rotateFlag(true),
+      obstDist(0),
+      rotateCount(0) {
+}
+
+
+float Navigator::getObstDist() {
+  return obstDist;
+}
+
+bool Navigator::getRotateFlag() {
+  return rotateFlag;
+}
+
+void Navigator::setRotateFlag() {
+  rotateFlag = false;
+}
+
+void Navigator::ScanCallback(const sensor_msgs::LaserScan::ConstPtr& input) {
   float min = 10;
   for (const auto& dist : input->ranges) {
     if (min > dist) {
@@ -54,25 +75,11 @@ void Navigator::callback(const sensor_msgs::LaserScan::ConstPtr& input) {
   ROS_DEBUG_STREAM("Distance to obstacle: " << obstDist);
 }
 
-
-
-void Navigator::timerCallback(const ros::TimerEvent& event) {
+void Navigator::RotatetimerCallback(const ros::TimerEvent& event) {
   if (obstDist > .75) {
-  rotateFlag = true;
-  ROS_INFO_STREAM("5 seconds up rotating");
+    rotateFlag = true;
+    ROS_INFO_STREAM("Rotating in place to aid mapping");
   }
-}
-
-Navigator::Navigator()
-    : rotateFlag(true),
-      obstDist(0),
-      rotateCount(0) {
-
-}
-
-
-void Navigator::setRotateFlag() {
-  rotateFlag = false;
 }
 
 geometry_msgs::Twist Navigator::dir() {
@@ -87,22 +94,20 @@ geometry_msgs::Twist Navigator::dir() {
 
   std::random_device rd; /* used to initialize (seed) engine*/
   std::mt19937 rng(rd()); /* random-number engine used (Mersenne-Twister)*/
-  std::uniform_int_distribution<int> uni(30, 80); /* guaranteed unbiased*/
+  std::uniform_int_distribution<int> uni(30, 100); /* guaranteed unbiased*/
   float randomAngle = uni(rng);
   if (rotateFlag) {
     action.angular.z = 360 * (3.14 / 180);
-    ROS_INFO_STREAM_ONCE("rotating 5 times");
-
   }
   if (rotateCount == 5) {
     setRotateFlag();
     rotateCount = 0;
   }
-  if (obstDist > .75 && rotateFlag == false) {
+  if (obstDist > 0.75 && rotateFlag == false) {
     //  Linear motion in forward direction
     action.linear.x = 0.25;
-    ROS_INFO_STREAM("Moving Forward");
-  } else if (obstDist < .75 && rotateFlag == false) {
+    ROS_INFO_STREAM_THROTTLE(5, "Moving Forward");
+  } else if (obstDist < 0.75 && rotateFlag == false) {
     //  2D Rotation of about 90 degress
     action.angular.z = randomAngle * (3.14 / 180);
     ROS_WARN_STREAM(
@@ -111,3 +116,5 @@ geometry_msgs::Twist Navigator::dir() {
   return action;
 
 }
+
+
