@@ -208,3 +208,15 @@ include_directories(
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
+
+if(CATKIN_ENABLE_TESTING)
+  find_package(rostest REQUIRED)
+  add_rostest_gtest(terrapinavigatorTest test/terrapinavigatorTest.launch test/terrapinavigatorTest.cpp test/TurtleTest.cpp test/NavigatorTest.cpp test/TerpCamTest.cpp src/Navigator.cpp  src/TerpCam.cpp src/Turtle.cpp)
+  target_link_libraries(terrapinavigatorTest ${catkin_LIBRARIES})
+    add_dependencies(
+	  terrapinavigatorTest
+	  ${catkin_EXPORTED_TARGETS}
+)
+endif()
+
+# catkin_add_gtest(TerpCamTest test/TerpCamTest.cpp)
