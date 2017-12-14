@@ -54,16 +54,14 @@
 class TerpCam {
  public:
   TerpCam();
-
+  bool getTakeImageFlag();
+  void setTakeImageFlag();
   bool takeImage(terrapinavigator::pictureService::Request &req,
                  terrapinavigator::pictureService::Response &resp);
-
-  void cameraCallback(const sensor_msgs::ImageConstPtr& msg);
   void camTimerCallback(const ros::TimerEvent& event);
+  void cameraCallback(const sensor_msgs::ImageConstPtr& msg);
 
  private:
-
-  std::vector<std::string> savedImages;
 
   bool takeImageFlag;
 
@@ -72,6 +70,7 @@ class TerpCam {
 
 
   ros::NodeHandle nh;
+
 
 };
 

@@ -58,6 +58,33 @@ TerpCam::TerpCam()
       > ("takeImage");
 }
 
+bool TerpCam::getTakeImageFlag() {
+  return takeImageFlag;
+}
+
+void TerpCam::setTakeImageFlag() {
+  takeImageFlag = true;
+}
+
+bool TerpCam::takeImage(terrapinavigator::pictureService::Request &req,
+                        terrapinavigator::pictureService::Response &resp) {
+  resp.clickImg = true;
+
+  ROS_INFO_STREAM("Taking a picture");
+
+  takeImageFlag = resp.clickImg;
+
+  return true;
+}
+
+
+void TerpCam::camTimerCallback(const ros::TimerEvent& event) {
+  takeImageFlag = true;
+  ROS_INFO_STREAM("Taking a picture");
+}
+
+
+
 void TerpCam::cameraCallback(const sensor_msgs::ImageConstPtr& img) {
   if (takeImageFlag) {
     cv_bridge::CvImagePtr cv_ptr;
@@ -74,27 +101,12 @@ void TerpCam::cameraCallback(const sensor_msgs::ImageConstPtr& img) {
 
     cv::imwrite(filename.str(), cv_ptr->image);
 
-    ROS_INFO_STREAM("Saving image" << filename.str().c_str() << "to ~/.ros/");
+    ROS_INFO_STREAM("Saving image " << filename.str().c_str() << "to ~/.ros/");
 
     takeImageFlag = false;
   }
 }
 
 
-bool TerpCam::takeImage(terrapinavigator::pictureService::Request &req,
-                       terrapinavigator::pictureService::Response &resp) {
-  resp.clickImg = true;
-
-  ROS_INFO_STREAM("Taking a picture");
-
-  takeImageFlag = resp.clickImg;
-
-  return true;
-}
-
-void TerpCam::camTimerCallback(const ros::TimerEvent& event) {
-  takeImageFlag = true;
-  ROS_INFO_STREAM("Taking a picture every 40 seconds");
-}
 
 
