@@ -1,0 +1,120 @@
+\hypertarget{NavigatorTest_8cpp}{}\section{test/\+Navigator\+Test.cpp File Reference}
+\label{NavigatorTest_8cpp}\index{test/\+Navigator\+Test.\+cpp@{test/\+Navigator\+Test.\+cpp}}
+
+
+Contains tests for navigator class.  
+
+
+{\ttfamily \#include $<$ros/ros.\+h$>$}\\*
+{\ttfamily \#include $<$gtest/gtest.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}terrapinavigator/\+Navigator.\+h\char`\"{}}\\*
+Include dependency graph for Navigator\+Test.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{NavigatorTest_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{NavigatorTest_8cpp_a33d8c1e575420cc79b1427a3daa1d04a}{T\+E\+ST} (Navigator\+Test, Initial\+Linear\+Test)
+\begin{DoxyCompactList}\small\item\em Unit test to check initial linear motion. \end{DoxyCompactList}\item 
+\hyperlink{NavigatorTest_8cpp_a9c41f074f8c452de6639c8d057bdd553}{T\+E\+ST} (Navigator\+Test, Initial\+Angular\+Test)
+\begin{DoxyCompactList}\small\item\em Unit test to check initial angular rotation. \end{DoxyCompactList}\item 
+\hyperlink{NavigatorTest_8cpp_ab7b68c9d72fabd287db8797fad51ad5c}{T\+E\+ST} (Navigator\+Test, Callback\+Test)
+\begin{DoxyCompactList}\small\item\em Unit test for scan callback. \end{DoxyCompactList}\item 
+\hyperlink{NavigatorTest_8cpp_a873560fb9d7c6efcd756e32442e74f4e}{T\+E\+ST} (Navigator\+Test, Rotate\+Flag\+Test)
+\begin{DoxyCompactList}\small\item\em Unit test for rotate flag. \end{DoxyCompactList}\item 
+\hyperlink{NavigatorTest_8cpp_a9848cdb9a04916d83808ba14c6d54538}{T\+E\+ST} (Navigator\+Test, Initial\+Rotate\+Test)
+\begin{DoxyCompactList}\small\item\em Unit test to check timer callback functionality. \end{DoxyCompactList}\item 
+\hyperlink{NavigatorTest_8cpp_a76f1622e33d5f843416c2ea6b65c69f0}{T\+E\+ST} (Navigator\+Test, Random\+Angle\+Test)
+\begin{DoxyCompactList}\small\item\em Unit test for random angle rotation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Contains tests for navigator class. 
+
+\begin{DoxyAuthor}{Author}
+Pranav Inani 
+\end{DoxyAuthor}
+\begin{DoxyCopyright}{Copyright}
+2017 
+\end{DoxyCopyright}
+
+
+\subsection{Function Documentation}
+\index{Navigator\+Test.\+cpp@{Navigator\+Test.\+cpp}!T\+E\+ST@{T\+E\+ST}}
+\index{T\+E\+ST@{T\+E\+ST}!Navigator\+Test.\+cpp@{Navigator\+Test.\+cpp}}
+\subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Navigator\+Test, Initial\+Linear\+Test)}{TEST(NavigatorTest, InitialLinearTest)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
+\begin{DoxyParamCaption}
+\item[{Navigator\+Test}]{, }
+\item[{Initial\+Linear\+Test}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{NavigatorTest_8cpp_a33d8c1e575420cc79b1427a3daa1d04a}{}\label{NavigatorTest_8cpp_a33d8c1e575420cc79b1427a3daa1d04a}
+
+
+Unit test to check initial linear motion. 
+
+Checks if the turtlebot has no movement in x direction as we only want it to rotate initially \index{Navigator\+Test.\+cpp@{Navigator\+Test.\+cpp}!T\+E\+ST@{T\+E\+ST}}
+\index{T\+E\+ST@{T\+E\+ST}!Navigator\+Test.\+cpp@{Navigator\+Test.\+cpp}}
+\subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Navigator\+Test, Initial\+Angular\+Test)}{TEST(NavigatorTest, InitialAngularTest)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
+\begin{DoxyParamCaption}
+\item[{Navigator\+Test}]{, }
+\item[{Initial\+Angular\+Test}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{NavigatorTest_8cpp_a9c41f074f8c452de6639c8d057bdd553}{}\label{NavigatorTest_8cpp_a9c41f074f8c452de6639c8d057bdd553}
+
+
+Unit test to check initial angular rotation. 
+
+Checks if the action initially is to rotate the turtlebot in place to explore environment \index{Navigator\+Test.\+cpp@{Navigator\+Test.\+cpp}!T\+E\+ST@{T\+E\+ST}}
+\index{T\+E\+ST@{T\+E\+ST}!Navigator\+Test.\+cpp@{Navigator\+Test.\+cpp}}
+\subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Navigator\+Test, Callback\+Test)}{TEST(NavigatorTest, CallbackTest)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
+\begin{DoxyParamCaption}
+\item[{Navigator\+Test}]{, }
+\item[{Callback\+Test}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{NavigatorTest_8cpp_ab7b68c9d72fabd287db8797fad51ad5c}{}\label{NavigatorTest_8cpp_ab7b68c9d72fabd287db8797fad51ad5c}
+
+
+Unit test for scan callback. 
+
+Checks if the obstacle distance is in the desired range \index{Navigator\+Test.\+cpp@{Navigator\+Test.\+cpp}!T\+E\+ST@{T\+E\+ST}}
+\index{T\+E\+ST@{T\+E\+ST}!Navigator\+Test.\+cpp@{Navigator\+Test.\+cpp}}
+\subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Navigator\+Test, Rotate\+Flag\+Test)}{TEST(NavigatorTest, RotateFlagTest)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
+\begin{DoxyParamCaption}
+\item[{Navigator\+Test}]{, }
+\item[{Rotate\+Flag\+Test}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{NavigatorTest_8cpp_a873560fb9d7c6efcd756e32442e74f4e}{}\label{NavigatorTest_8cpp_a873560fb9d7c6efcd756e32442e74f4e}
+
+
+Unit test for rotate flag. 
+
+Checks the setter and getter for rotate flag \index{Navigator\+Test.\+cpp@{Navigator\+Test.\+cpp}!T\+E\+ST@{T\+E\+ST}}
+\index{T\+E\+ST@{T\+E\+ST}!Navigator\+Test.\+cpp@{Navigator\+Test.\+cpp}}
+\subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Navigator\+Test, Initial\+Rotate\+Test)}{TEST(NavigatorTest, InitialRotateTest)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
+\begin{DoxyParamCaption}
+\item[{Navigator\+Test}]{, }
+\item[{Initial\+Rotate\+Test}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{NavigatorTest_8cpp_a9848cdb9a04916d83808ba14c6d54538}{}\label{NavigatorTest_8cpp_a9848cdb9a04916d83808ba14c6d54538}
+
+
+Unit test to check timer callback functionality. 
+
+Checks if the timer callback was called and the necessary flag was set \index{Navigator\+Test.\+cpp@{Navigator\+Test.\+cpp}!T\+E\+ST@{T\+E\+ST}}
+\index{T\+E\+ST@{T\+E\+ST}!Navigator\+Test.\+cpp@{Navigator\+Test.\+cpp}}
+\subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Navigator\+Test, Random\+Angle\+Test)}{TEST(NavigatorTest, RandomAngleTest)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
+\begin{DoxyParamCaption}
+\item[{Navigator\+Test}]{, }
+\item[{Random\+Angle\+Test}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{NavigatorTest_8cpp_a76f1622e33d5f843416c2ea6b65c69f0}{}\label{NavigatorTest_8cpp_a76f1622e33d5f843416c2ea6b65c69f0}
+
+
+Unit test for random angle rotation. 
+
+Checks if the robot moves with the desired range of random angle when obstacle is detected 

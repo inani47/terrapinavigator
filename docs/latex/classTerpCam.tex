@@ -1,0 +1,138 @@
+\hypertarget{classTerpCam}{}\section{Terp\+Cam Class Reference}
+\label{classTerpCam}\index{Terp\+Cam@{Terp\+Cam}}
+
+
+\hyperlink{classTerpCam}{Terp\+Cam} class.  
+
+
+
+
+{\ttfamily \#include $<$Terp\+Cam.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classTerpCam_a447cd41ae2673fcb318f823c3624cf85}{Terp\+Cam} ()\hypertarget{classTerpCam_a447cd41ae2673fcb318f823c3624cf85}{}\label{classTerpCam_a447cd41ae2673fcb318f823c3624cf85}
+
+\begin{DoxyCompactList}\small\item\em Destructor for \hyperlink{classTerpCam}{Terp\+Cam} Class. \end{DoxyCompactList}\item 
+bool \hyperlink{classTerpCam_acfc8df6c8c13209279afe270cd55021d}{get\+Take\+Image\+Flag} ()
+\begin{DoxyCompactList}\small\item\em getter for take\+Image\+Flag \end{DoxyCompactList}\item 
+void \hyperlink{classTerpCam_ae61767e8357dfe8ceccdd04734e3e94d}{set\+Take\+Image\+Flag} ()
+\begin{DoxyCompactList}\small\item\em setter for take\+Image\+Flag \end{DoxyCompactList}\item 
+bool \hyperlink{classTerpCam_a17bb8fc53fd73ab9c4138b02eed3b62b}{take\+Image} (terrapinavigator\+::picture\+Service\+::\+Request \&req, terrapinavigator\+::picture\+Service\+::\+Response \&resp)
+\begin{DoxyCompactList}\small\item\em callback function for the take image server \end{DoxyCompactList}\item 
+void \hyperlink{classTerpCam_a7315af3e74448baf8ffa3d5d81020530}{cam\+Timer\+Callback} (const ros\+::\+Timer\+Event \&event)
+\begin{DoxyCompactList}\small\item\em callback function for the cam timer \end{DoxyCompactList}\item 
+void \hyperlink{classTerpCam_aa847acf259a1108ad7c15a92e0be291b}{camera\+Callback} (const sensor\+\_\+msgs\+::\+Image\+Const\+Ptr \&img)
+\begin{DoxyCompactList}\small\item\em callback function for the camera subscriber \end{DoxyCompactList}\item 
+\hyperlink{classTerpCam_abf1740200fd7d293b92d37ddcd8d4c43}{$\sim$\+Terp\+Cam} ()\hypertarget{classTerpCam_abf1740200fd7d293b92d37ddcd8d4c43}{}\label{classTerpCam_abf1740200fd7d293b92d37ddcd8d4c43}
+
+\begin{DoxyCompactList}\small\item\em Destructor for \hyperlink{classTerpCam}{Terp\+Cam} Class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classTerpCam}{Terp\+Cam} class. 
+
+Implements picture service Takes a picture every 40 seconds Also can take pictures when desired by the user 
+
+\subsection{Member Function Documentation}
+\index{Terp\+Cam@{Terp\+Cam}!camera\+Callback@{camera\+Callback}}
+\index{camera\+Callback@{camera\+Callback}!Terp\+Cam@{Terp\+Cam}}
+\subsubsection[{\texorpdfstring{camera\+Callback(const sensor\+\_\+msgs\+::\+Image\+Const\+Ptr \&img)}{cameraCallback(const sensor_msgs::ImageConstPtr &img)}}]{\setlength{\rightskip}{0pt plus 5cm}void Terp\+Cam\+::camera\+Callback (
+\begin{DoxyParamCaption}
+\item[{const sensor\+\_\+msgs\+::\+Image\+Const\+Ptr \&}]{img}
+\end{DoxyParamCaption}
+)}\hypertarget{classTerpCam_aa847acf259a1108ad7c15a92e0be291b}{}\label{classTerpCam_aa847acf259a1108ad7c15a92e0be291b}
+
+
+callback function for the camera subscriber 
+
+saves an image locally if take image flag is true
+
+
+\begin{DoxyParams}{Parameters}
+{\em img} & is a constant image pointer of what the turtlebot is seeing\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Terp\+Cam@{Terp\+Cam}!cam\+Timer\+Callback@{cam\+Timer\+Callback}}
+\index{cam\+Timer\+Callback@{cam\+Timer\+Callback}!Terp\+Cam@{Terp\+Cam}}
+\subsubsection[{\texorpdfstring{cam\+Timer\+Callback(const ros\+::\+Timer\+Event \&event)}{camTimerCallback(const ros::TimerEvent &event)}}]{\setlength{\rightskip}{0pt plus 5cm}void Terp\+Cam\+::cam\+Timer\+Callback (
+\begin{DoxyParamCaption}
+\item[{const ros\+::\+Timer\+Event \&}]{event}
+\end{DoxyParamCaption}
+)}\hypertarget{classTerpCam_a7315af3e74448baf8ffa3d5d81020530}{}\label{classTerpCam_a7315af3e74448baf8ffa3d5d81020530}
+
+
+callback function for the cam timer 
+
+sets the take image flag to true every 40 seconds
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & is the ros\+::\+Timer\+Event structure it provides timing information useful when debugging.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Terp\+Cam@{Terp\+Cam}!get\+Take\+Image\+Flag@{get\+Take\+Image\+Flag}}
+\index{get\+Take\+Image\+Flag@{get\+Take\+Image\+Flag}!Terp\+Cam@{Terp\+Cam}}
+\subsubsection[{\texorpdfstring{get\+Take\+Image\+Flag()}{getTakeImageFlag()}}]{\setlength{\rightskip}{0pt plus 5cm}bool Terp\+Cam\+::get\+Take\+Image\+Flag (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTerpCam_acfc8df6c8c13209279afe270cd55021d}{}\label{classTerpCam_acfc8df6c8c13209279afe270cd55021d}
+
+
+getter for take\+Image\+Flag 
+
+\begin{DoxyReturn}{Returns}
+take\+Image\+Flag 
+\end{DoxyReturn}
+\index{Terp\+Cam@{Terp\+Cam}!set\+Take\+Image\+Flag@{set\+Take\+Image\+Flag}}
+\index{set\+Take\+Image\+Flag@{set\+Take\+Image\+Flag}!Terp\+Cam@{Terp\+Cam}}
+\subsubsection[{\texorpdfstring{set\+Take\+Image\+Flag()}{setTakeImageFlag()}}]{\setlength{\rightskip}{0pt plus 5cm}void Terp\+Cam\+::set\+Take\+Image\+Flag (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTerpCam_ae61767e8357dfe8ceccdd04734e3e94d}{}\label{classTerpCam_ae61767e8357dfe8ceccdd04734e3e94d}
+
+
+setter for take\+Image\+Flag 
+
+sets the take\+Image\+Flag to true
+
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Terp\+Cam@{Terp\+Cam}!take\+Image@{take\+Image}}
+\index{take\+Image@{take\+Image}!Terp\+Cam@{Terp\+Cam}}
+\subsubsection[{\texorpdfstring{take\+Image(terrapinavigator\+::picture\+Service\+::\+Request \&req, terrapinavigator\+::picture\+Service\+::\+Response \&resp)}{takeImage(terrapinavigator::pictureService::Request &req, terrapinavigator::pictureService::Response &resp)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Terp\+Cam\+::take\+Image (
+\begin{DoxyParamCaption}
+\item[{terrapinavigator\+::picture\+Service\+::\+Request \&}]{req, }
+\item[{terrapinavigator\+::picture\+Service\+::\+Response \&}]{resp}
+\end{DoxyParamCaption}
+)}\hypertarget{classTerpCam_a17bb8fc53fd73ab9c4138b02eed3b62b}{}\label{classTerpCam_a17bb8fc53fd73ab9c4138b02eed3b62b}
+
+
+callback function for the take image server 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \&req} & is the request sent by the client \\
+\hline
+{\em \&resp} & is the response sent by the server\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the response is successful 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/terrapinavigator/\hyperlink{TerpCam_8h}{Terp\+Cam.\+h}\item 
+src/\hyperlink{TerpCam_8cpp}{Terp\+Cam.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,148 @@
+\hypertarget{classNavigator}{}\section{Navigator Class Reference}
+\label{classNavigator}\index{Navigator@{Navigator}}
+
+
+\hyperlink{classNavigator}{Navigator} class.  
+
+
+
+
+{\ttfamily \#include $<$Navigator.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classNavigator_a59230ab4698882f754d5ce275a1a4030}{Navigator} ()\hypertarget{classNavigator_a59230ab4698882f754d5ce275a1a4030}{}\label{classNavigator_a59230ab4698882f754d5ce275a1a4030}
+
+\begin{DoxyCompactList}\small\item\em constuctor for \hyperlink{classNavigator}{Navigator} Class \end{DoxyCompactList}\item 
+float \hyperlink{classNavigator_aecf7698fab9b42b91ee387524a0d9284}{get\+Obst\+Dist} ()
+\begin{DoxyCompactList}\small\item\em getter for obst\+Dist \end{DoxyCompactList}\item 
+bool \hyperlink{classNavigator_a4d838ef75089c6dc9e2530e5f39a389e}{get\+Rotate\+Flag} ()
+\begin{DoxyCompactList}\small\item\em getter for rotate\+Flag \end{DoxyCompactList}\item 
+void \hyperlink{classNavigator_afe356293bdf38da88a426f161d969ad8}{set\+Rotate\+Flag} ()
+\begin{DoxyCompactList}\small\item\em setter for rotate\+Flag \end{DoxyCompactList}\item 
+void \hyperlink{classNavigator_afd068836c4f8c13a2d072f0bf249dc88}{Scan\+Callback} (const sensor\+\_\+msgs\+::\+Laser\+Scan\+::\+Const\+Ptr \&input)
+\begin{DoxyCompactList}\small\item\em callback function for the camera subscriber \end{DoxyCompactList}\item 
+void \hyperlink{classNavigator_a16dbd75e0fcc830c871b424af0a72938}{Rotatetimer\+Callback} (const ros\+::\+Timer\+Event \&event)
+\begin{DoxyCompactList}\small\item\em callback function for the rotate timer \end{DoxyCompactList}\item 
+geometry\+\_\+msgs\+::\+Twist \hyperlink{classNavigator_ad3924883d7b8edd7728510b2d466baa3}{dir} ()
+\begin{DoxyCompactList}\small\item\em callback function for the cam timer \end{DoxyCompactList}\item 
+\hyperlink{classNavigator_a81bb9c10588736497700032d8b61e9d1}{$\sim$\+Navigator} ()\hypertarget{classNavigator_a81bb9c10588736497700032d8b61e9d1}{}\label{classNavigator_a81bb9c10588736497700032d8b61e9d1}
+
+\begin{DoxyCompactList}\small\item\em Destructor for \hyperlink{classNavigator}{Navigator} Class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classNavigator}{Navigator} class. 
+
+Generates twist messages for turtlebot to explore Starts by rotating in place then moving ahead Rotates in place every 45 seconds to aid mapping Avoids obstacles by rotating with random angles till clear 
+
+\subsection{Member Function Documentation}
+\index{Navigator@{Navigator}!dir@{dir}}
+\index{dir@{dir}!Navigator@{Navigator}}
+\subsubsection[{\texorpdfstring{dir()}{dir()}}]{\setlength{\rightskip}{0pt plus 5cm}geometry\+\_\+msgs\+::\+Twist Navigator\+::dir (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classNavigator_ad3924883d7b8edd7728510b2d466baa3}{}\label{classNavigator_ad3924883d7b8edd7728510b2d466baa3}
+
+
+callback function for the cam timer 
+
+Generates twist messages for turtle\+Bot to moce
+
+\begin{DoxyReturn}{Returns}
+action (the twist messages) 
+\end{DoxyReturn}
+\index{Navigator@{Navigator}!get\+Obst\+Dist@{get\+Obst\+Dist}}
+\index{get\+Obst\+Dist@{get\+Obst\+Dist}!Navigator@{Navigator}}
+\subsubsection[{\texorpdfstring{get\+Obst\+Dist()}{getObstDist()}}]{\setlength{\rightskip}{0pt plus 5cm}float Navigator\+::get\+Obst\+Dist (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classNavigator_aecf7698fab9b42b91ee387524a0d9284}{}\label{classNavigator_aecf7698fab9b42b91ee387524a0d9284}
+
+
+getter for obst\+Dist 
+
+\begin{DoxyReturn}{Returns}
+obst\+Dist 
+\end{DoxyReturn}
+\index{Navigator@{Navigator}!get\+Rotate\+Flag@{get\+Rotate\+Flag}}
+\index{get\+Rotate\+Flag@{get\+Rotate\+Flag}!Navigator@{Navigator}}
+\subsubsection[{\texorpdfstring{get\+Rotate\+Flag()}{getRotateFlag()}}]{\setlength{\rightskip}{0pt plus 5cm}bool Navigator\+::get\+Rotate\+Flag (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classNavigator_a4d838ef75089c6dc9e2530e5f39a389e}{}\label{classNavigator_a4d838ef75089c6dc9e2530e5f39a389e}
+
+
+getter for rotate\+Flag 
+
+\begin{DoxyReturn}{Returns}
+rotate\+Flag 
+\end{DoxyReturn}
+\index{Navigator@{Navigator}!Rotatetimer\+Callback@{Rotatetimer\+Callback}}
+\index{Rotatetimer\+Callback@{Rotatetimer\+Callback}!Navigator@{Navigator}}
+\subsubsection[{\texorpdfstring{Rotatetimer\+Callback(const ros\+::\+Timer\+Event \&event)}{RotatetimerCallback(const ros::TimerEvent &event)}}]{\setlength{\rightskip}{0pt plus 5cm}void Navigator\+::\+Rotatetimer\+Callback (
+\begin{DoxyParamCaption}
+\item[{const ros\+::\+Timer\+Event \&}]{event}
+\end{DoxyParamCaption}
+)}\hypertarget{classNavigator_a16dbd75e0fcc830c871b424af0a72938}{}\label{classNavigator_a16dbd75e0fcc830c871b424af0a72938}
+
+
+callback function for the rotate timer 
+
+sets the take rotate flag to true every 45 seconds
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & is the ros\+::\+Timer\+Event structure it provides timing information useful when debugging.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Navigator@{Navigator}!Scan\+Callback@{Scan\+Callback}}
+\index{Scan\+Callback@{Scan\+Callback}!Navigator@{Navigator}}
+\subsubsection[{\texorpdfstring{Scan\+Callback(const sensor\+\_\+msgs\+::\+Laser\+Scan\+::\+Const\+Ptr \&input)}{ScanCallback(const sensor_msgs::LaserScan::ConstPtr &input)}}]{\setlength{\rightskip}{0pt plus 5cm}void Navigator\+::\+Scan\+Callback (
+\begin{DoxyParamCaption}
+\item[{const sensor\+\_\+msgs\+::\+Laser\+Scan\+::\+Const\+Ptr \&}]{input}
+\end{DoxyParamCaption}
+)}\hypertarget{classNavigator_afd068836c4f8c13a2d072f0bf249dc88}{}\label{classNavigator_afd068836c4f8c13a2d072f0bf249dc88}
+
+
+callback function for the camera subscriber 
+
+finds the closest obstacle
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & is the pointer to array containing obstacle distances\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Navigator@{Navigator}!set\+Rotate\+Flag@{set\+Rotate\+Flag}}
+\index{set\+Rotate\+Flag@{set\+Rotate\+Flag}!Navigator@{Navigator}}
+\subsubsection[{\texorpdfstring{set\+Rotate\+Flag()}{setRotateFlag()}}]{\setlength{\rightskip}{0pt plus 5cm}void Navigator\+::set\+Rotate\+Flag (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classNavigator_afe356293bdf38da88a426f161d969ad8}{}\label{classNavigator_afe356293bdf38da88a426f161d969ad8}
+
+
+setter for rotate\+Flag 
+
+sets the rotate\+Flag to false
+
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/terrapinavigator/\hyperlink{Navigator_8h}{Navigator.\+h}\item 
+src/\hyperlink{Navigator_8cpp}{Navigator.\+cpp}\end{DoxyCompactItemize}
