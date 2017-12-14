@@ -1,0 +1,9 @@
+Done processing ./src/Turtle.cpp
+Done processing ./src/main.cpp
+Done processing ./src/Navigator.cpp
+Done processing ./src/TerpCam.cpp
+Done processing ./test/terpTest.cpp
+Done processing ./test/TerpCamTest.cpp
+Done processing ./test/TurtleTest.cpp
+Done processing ./test/NavigatorTest.cpp
+
