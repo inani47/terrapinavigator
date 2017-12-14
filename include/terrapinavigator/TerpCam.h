@@ -40,13 +40,13 @@
 #ifndef INCLUDE_TERPCAM_H_
 #define INCLUDE_TERPCAM_H_
 
-
+#include <ros/ros.h>
 #include <string>
 #include <vector>
-#include <stdlib.h>
-#include <ros/ros.h>
-#include <sensor_msgs/Image.h>
+#include <iostream>
 #include <terrapinavigator/pictureService.h>
+#include <sensor_msgs/Image.h>
+
 
 /**
  * @brief TerpCam class

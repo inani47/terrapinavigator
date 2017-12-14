@@ -2,6 +2,6 @@
    
    
    <node name="terrapinavigator" pkg="terrapinavigator" type="terrapinavigator" output="screen"/>
-       <test pkg="terrapinavigator" test-name="terrapinavigatorTest" type="terrapinavigatorTest" />
+       <test pkg="terrapinavigator" test-name="terpTest" type="terpTest" />
    
    </launch>

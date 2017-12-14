@@ -37,18 +37,18 @@
  *  @author Pranav Inani
  *  @copyright 2017
  */
-#include <stdlib.h>
 #include <ros/ros.h>
+#include <stdlib.h>
 #include <cv_bridge/cv_bridge.h>
 #include <sensor_msgs/image_encodings.h>
-#include <opencv2/imgproc/imgproc.hpp>
-#include <opencv2/core/core.hpp>
-#include <opencv2/highgui/highgui.hpp>
 #include <image_transport/image_transport.h>
 #include <sstream>
 #include <string>
 #include "terrapinavigator/pictureService.h"
 #include "terrapinavigator/TerpCam.h"
+#include <opencv2/imgproc/imgproc.hpp>
+#include <opencv2/core/core.hpp>
+#include <opencv2/highgui/highgui.hpp>
 
 TerpCam::TerpCam()
     : takeImageFlag(false) {
@@ -90,11 +90,15 @@ void TerpCam::cameraCallback(const sensor_msgs::ImageConstPtr& img) {
       ROS_ERROR_STREAM("cv_bridge exception:" << e.what());
       return;
     }
+    // appends the current time to each file
     std::ostringstream filename;
-    filename << "terpImage" << ros::WallTime::now()  // appends the current time to each file
+    filename << "terpImage" << ros::WallTime::now()
         << ".jpg";
+
     cv::imwrite(filename.str(), cv_ptr->image);  // saves the file
+
     ROS_INFO_STREAM("Saving image " << filename.str().c_str() << "to ~/.ros/");
+
     takeImageFlag = false;
   }
 }

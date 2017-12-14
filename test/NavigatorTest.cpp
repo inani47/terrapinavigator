@@ -72,7 +72,8 @@ TEST(NavigatorTest, InitialAngularTest) {
 TEST(NavigatorTest, CallbackTest) {
   ros::NodeHandle tn;
   Navigator nav = Navigator();
-  ros::Subscriber subLaserScan = tn.subscribe("/scan", 1000, &Navigator::ScanCallback, &nav);
+  ros::Subscriber subLaserScan = tn.subscribe
+  ("/scan", 1000, &Navigator::ScanCallback, &nav);
   EXPECT_LE(nav.getObstDist(), 10);
 }
 
@@ -108,5 +109,4 @@ TEST(NavigatorTest, RandomAngleTest) {
   nav.setRotateFlag();
   EXPECT_GE(101* (3.14 / 180), nav.dir().angular.z);
 }
-
 

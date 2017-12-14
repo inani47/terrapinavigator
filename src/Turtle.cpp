@@ -37,11 +37,11 @@
  *  @author Pranav Inani
  *  @copyright 2017
  */
-#include "../include/terrapinavigator/Turtle.h"
 
-#include <iostream>
-#include <ros/ros.h>
+#include "terrapinavigator/Turtle.h"
 #include <terrapinavigator/pictureService.h>
+#include <ros/ros.h>
+#include <iostream>
 #include "terrapinavigator/Navigator.h"
 
 Turtle::Turtle() {
@@ -62,7 +62,8 @@ Turtle::Turtle() {
 }
 
 bool Turtle::explore() {
-  actionPub.publish(navigator.dir());  // publishes twist messages to make trutleBot move
+  // publishes twist messages to make trutleBot move
+  actionPub.publish(navigator.dir());
   return true;
 }
 

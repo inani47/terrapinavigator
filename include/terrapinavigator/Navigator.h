@@ -41,9 +41,9 @@
 #define INCLUDE_NAVIGATOR_H_
 
 #include "ros/ros.h"
-#include "std_msgs/String.h"
 #include "sensor_msgs/LaserScan.h"
 #include "geometry_msgs/Twist.h"
+#include "std_msgs/String.h"
 
 /**
  * @brief Navigator class

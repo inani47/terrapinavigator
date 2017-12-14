@@ -74,7 +74,8 @@ void Navigator::ScanCallback(const sensor_msgs::LaserScan::ConstPtr& input) {
 
 void Navigator::RotatetimerCallback(const ros::TimerEvent& event) {
   if (obstDist > .75) {
-    rotateFlag = true;  // sets rotate flag every 45 seconds if no obstacle present
+    // sets rotate flag every 45 seconds if no obstacle present
+    rotateFlag = true;
     ROS_INFO_STREAM("Rotating in place to aid mapping");
   }
 }
@@ -109,10 +110,9 @@ geometry_msgs::Twist Navigator::dir() {
     //  2D Rotation of about 90 degress
     action.angular.z = randomAngle * (3.14 / 180);
     ROS_WARN_STREAM(
-        "OBSTACLE DETECTED! Turning with random angle: " << action.angular.z *(180/3.14));
+        "OBSTACLE DETECTED! Turning randomly: "<< action.angular.z*(180/3.14));
   }
   return action;
-
 }
 
 Navigator::~Navigator() {
