@@ -50,15 +50,18 @@ Turtle::Turtle() {
 
   takeImageServer = n.advertiseService("pictureService", &TerpCam::takeImage,
                                        &cam);
-  subLaserScan = n.subscribe("/scan", 1000, &Navigator::callback, &navigator);
+  subLaserScan = n.subscribe("/scan", 1000, &Navigator::ScanCallback,
+                             &navigator);
 
-  timer = n.createTimer(ros::Duration(40), &Navigator::timerCallback,
+  Rotatetimer = n.createTimer(ros::Duration(40),
+                              &Navigator::RotatetimerCallback,
                         &navigator);
   camTimer = n.createTimer(ros::Duration(45), &TerpCam::camTimerCallback, &cam);
   actionPub = n.advertise<geometry_msgs::Twist
       > ("/mobile_base/commands/velocity", 100);
 }
 
-void Turtle::explore() {
+bool Turtle::explore() {
   actionPub.publish(navigator.dir());
+  return true;
 }

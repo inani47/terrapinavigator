@@ -53,22 +53,17 @@
 class Turtle {
  public:
   Turtle();
-  void explore();
-
-
+  bool explore();
  private:
   ros::NodeHandle n;
   TerpCam cam = TerpCam();
   ros::Subscriber cameraSub;
   ros::ServiceServer takeImageServer;
   ros::Subscriber subLaserScan;
-  ros::Timer timer;
+  ros::Timer Rotatetimer;
   ros::Timer camTimer;
   ros::Publisher actionPub;
   Navigator navigator = Navigator();
-
-
-
 };
 
 
