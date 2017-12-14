@@ -44,6 +44,15 @@
 #include "terrapinavigator/Navigator.h"
 #include "../include/terrapinavigator/Turtle.h"
 
+/**
+ * @brief main function that demos the project
+ *
+ * @param  argc is the argument count
+ * @param  argv is the argument vector
+ *
+ * @return 0 if all tests pass else 1
+ */
+
 int main(int argc, char **argv) {
   ros::init(argc, argv, "terrapinavigator");
   ros::NodeHandle n;

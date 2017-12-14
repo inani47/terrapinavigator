@@ -30,7 +30,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 /**
- *  @file terrapinavigatorTest.cpp
+ *  @file terpTest.cpp
  *
  *  @brief Contains the main function to run all tests
  *
@@ -39,6 +39,15 @@
  */
 #include <ros/ros.h>
 #include <gtest/gtest.h>
+
+/**
+ * @brief main function for running all google tests
+ *
+ * @param  argc is the argument count
+ * @param  argv is the argument vector
+ *
+ * @return 0 if all tests pass else 1
+ */
 
 int main(int argc, char **argv) {
   ros::init(argc, argv, "terpTest");

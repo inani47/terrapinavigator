@@ -30,9 +30,9 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 /**
- *  @file walker.h
+ *  @file Navigator.h
  *
- *  @brief Header file of walker class
+ *  @brief Header file of Navigator class
  *
  *  @author Pranav Inani
  *  @copyright 2017

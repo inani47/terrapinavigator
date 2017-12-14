@@ -83,8 +83,8 @@ class TerpCam {
   /**
    * @brief callback function for the take image server
    *
-   * @param req is the request sent by the client
-   * @param res is the response sent by the server
+   * @param &req is the request sent by the client
+   * @param &resp is the response sent by the server
    *
    * @return true if the response is successful
    */
