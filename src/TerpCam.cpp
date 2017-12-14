@@ -47,15 +47,14 @@
 #include <image_transport/image_transport.h>
 #include <sstream>
 #include <string>
-#include <terrapinavigator/pictureService.h>
-#include "../include/terrapinavigator/TerpCam.h"
-
+#include "terrapinavigator/pictureService.h"
+#include "terrapinavigator/TerpCam.h"
 
 TerpCam::TerpCam()
     : takeImageFlag(false) {
 
-  cameraClient = nh.serviceClient < terrapinavigator::pictureService
-      > ("takeImage");
+  cameraClient = nh.serviceClient<terrapinavigator::pictureService>(
+      "takeImage");
 }
 
 bool TerpCam::getTakeImageFlag() {
@@ -77,13 +76,10 @@ bool TerpCam::takeImage(terrapinavigator::pictureService::Request &req,
   return true;
 }
 
-
 void TerpCam::camTimerCallback(const ros::TimerEvent& event) {
-  takeImageFlag = true;
+  takeImageFlag = true;  // sets take image flag every 40 seconds
   ROS_INFO_STREAM("Taking a picture");
 }
-
-
 
 void TerpCam::cameraCallback(const sensor_msgs::ImageConstPtr& img) {
   if (takeImageFlag) {
@@ -94,19 +90,15 @@ void TerpCam::cameraCallback(const sensor_msgs::ImageConstPtr& img) {
       ROS_ERROR_STREAM("cv_bridge exception:" << e.what());
       return;
     }
-
     std::ostringstream filename;
-    filename << "terpImage" << ros::WallTime::now()
+    filename << "terpImage" << ros::WallTime::now()  // appends the current time to each file
         << ".jpg";
-
-    cv::imwrite(filename.str(), cv_ptr->image);
-
+    cv::imwrite(filename.str(), cv_ptr->image);  // saves the file
     ROS_INFO_STREAM("Saving image " << filename.str().c_str() << "to ~/.ros/");
-
     takeImageFlag = false;
   }
 }
 
-
-
+TerpCam::~TerpCam() {
+}
 

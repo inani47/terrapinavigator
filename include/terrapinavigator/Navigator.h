@@ -45,24 +45,99 @@
 #include "sensor_msgs/LaserScan.h"
 #include "geometry_msgs/Twist.h"
 
+/**
+ * @brief Navigator class
+ *
+ * Generates twist messages for turtlebot to explore
+ * Starts by rotating in place then moving ahead
+ * Rotates in place every 45 seconds to aid mapping
+ * Avoids obstacles by rotating with random angles till clear
+ *
+ */
+
 class Navigator {
  public:
+  /**
+   * @brief constuctor for Navigator Class
+   */
   Navigator();
+  /**
+   *
+   * @brief getter for obstDist
+   *
+   * @return obstDist
+   *
+   */
   float getObstDist();
+  /**
+   *
+   * @brief getter for rotateFlag
+   *
+   * @return rotateFlag
+   *
+   */
   bool getRotateFlag();
+  /**
+   *
+   * @brief setter for rotateFlag
+   *
+   * sets the rotateFlag to false
+   *
+   * @return none
+   *
+   */
   void setRotateFlag();
+  /**
+   * @brief callback function for the camera subscriber
+   *
+   * finds the closest obstacle
+   *
+   * @param input is the pointer to array containing obstacle distances
+   *
+   * @return none
+   */
   void ScanCallback(const sensor_msgs::LaserScan::ConstPtr& input);
+  /**
+   * @brief callback function for the rotate timer
+   *
+   * sets the take rotate flag to true every 45 seconds
+   *
+   * @param event is the ros::TimerEvent structure it provides
+   *        timing information useful when debugging.
+   *
+   * @return none
+   */
   void RotatetimerCallback(const ros::TimerEvent& event);
+  /**
+   * @brief callback function for the cam timer
+   *
+   * Generates twist messages for turtleBot to moce
+   *
+   * @return action (the twist messages)
+   */
   geometry_msgs::Twist dir();
-
-
+  /**
+   * @brief Destructor for Navigator Class
+   */
+  ~Navigator();
 
  private:
+  /**
+   * @brief variable that contains the distance to obstacle
+   */
   float obstDist;
+  /**
+   * @brief flag for rotating the turtleBot
+   */
   bool rotateFlag;
+  /**
+   * @brief counts the number of rotations
+   */
   int rotateCount;
+  /**
+   * @brief twist message for turtleBot to move
+   */
   geometry_msgs::Twist action;
-
 };
 #endif // INCLUDE_NAVIGATOR_H_
 

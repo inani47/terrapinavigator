@@ -62,6 +62,9 @@ Turtle::Turtle() {
 }
 
 bool Turtle::explore() {
-  actionPub.publish(navigator.dir());
+  actionPub.publish(navigator.dir());  // publishes twist messages to make trutleBot move
   return true;
+}
+
+Turtle::~Turtle() {
 }

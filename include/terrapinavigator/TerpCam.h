@@ -41,9 +41,6 @@
 #define INCLUDE_TERPCAM_H_
 
 
-
-
-
 #include <string>
 #include <vector>
 #include <stdlib.h>
@@ -51,27 +48,88 @@
 #include <sensor_msgs/Image.h>
 #include <terrapinavigator/pictureService.h>
 
+/**
+ * @brief TerpCam class
+ *
+ * Implements picture service
+ * Takes a picture every 40 seconds
+ * Also can take pictures when desired by the user
+ *
+ */
 class TerpCam {
  public:
+  /**
+   * @brief Destructor for TerpCam Class
+   */
   TerpCam();
+  /**
+   *
+   * @brief getter for takeImageFlag
+   *
+   * @return takeImageFlag
+   *
+   */
   bool getTakeImageFlag();
+  /**
+   *
+   * @brief setter for takeImageFlag
+   *
+   * sets the takeImageFlag to true
+   *
+   * @return none
+   *
+   */
   void setTakeImageFlag();
+  /**
+   * @brief callback function for the take image server
+   *
+   * @param req is the request sent by the client
+   * @param res is the response sent by the server
+   *
+   * @return true if the response is successful
+   */
   bool takeImage(terrapinavigator::pictureService::Request &req,
                  terrapinavigator::pictureService::Response &resp);
+  /**
+   * @brief callback function for the cam timer
+   *
+   * sets the take image flag to true every 40 seconds
+   *
+   * @param event is the ros::TimerEvent structure it provides
+   *        timing information useful when debugging.
+   *
+   * @return none
+   */
   void camTimerCallback(const ros::TimerEvent& event);
-  void cameraCallback(const sensor_msgs::ImageConstPtr& msg);
+  /**
+   * @brief callback function for the camera subscriber
+   *
+   * saves an image locally if take image flag is true
+   *
+   * @param img is a constant image pointer of what the turtlebot is seeing
+   *
+   * @return none
+   */
+  void cameraCallback(const sensor_msgs::ImageConstPtr& img);
+  /**
+   * @brief Destructor for TerpCam Class
+   */
+  ~TerpCam();
 
  private:
-
+  /**
+   * @brief flag for taking image
+   */
   bool takeImageFlag;
-
-
+  /**
+   * @brief registers client for camera service
+   */
   ros::ServiceClient cameraClient;
 
-
+  /**
+   * @brief Node handle for camera service
+   */
   ros::NodeHandle nh;
-
-
 };
 
 #endif // INCLUDE_TERPCAM_H_

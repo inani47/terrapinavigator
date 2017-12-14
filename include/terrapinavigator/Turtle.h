@@ -37,35 +37,72 @@
  *  @author Pranav Inani
  *  @copyright 2017
  */
-/*
- * turtle.h
- *
- *  Created on: Dec 10, 2017
- *      Author: pranav
- */
 #include "terrapinavigator/Navigator.h"
 #include <terrapinavigator/pictureService.h>
 #include "TerpCam.h"
 
 #ifndef TERRAPINAVIGATOR_INCLUDE_TERRAPINAVIGATOR_TURTLE_H_
 #define TERRAPINAVIGATOR_INCLUDE_TERRAPINAVIGATOR_TURTLE_H_
-
+/**
+ * @brief Turtle class
+ *
+ * Initializes various subscriber, publishers and timers
+ * Has a method to publish twist messges.
+ *
+ */
 class Turtle {
  public:
+  /**
+   * @brief Constructor for Turtle Class
+   */
   Turtle();
+  /**
+   *
+   * @brief Publishes twist messages
+   *
+   * @return true if successful
+   *
+   */
   bool explore();
+  /**
+   * @brief Destructor for Turtle Class
+   */
+  ~Turtle();
  private:
   ros::NodeHandle n;
+  /**
+   * @brief Creates TerpCam Object
+   */
   TerpCam cam = TerpCam();
-  ros::Subscriber cameraSub;
-  ros::ServiceServer takeImageServer;
-  ros::Subscriber subLaserScan;
-  ros::Timer Rotatetimer;
-  ros::Timer camTimer;
-  ros::Publisher actionPub;
+  /**
+   * @brief Creates Navigator Object
+   */
   Navigator navigator = Navigator();
+  /**
+   * @brief registers subscriber for image pointers
+   */
+  ros::Subscriber cameraSub;
+  /**
+   * @brief registers server for camera service
+   */
+  ros::ServiceServer takeImageServer;
+  /**
+   * @brief registers subcriber for topic /scan
+   */
+  ros::Subscriber subLaserScan;
+  /**
+   * @brief registers timer for rotating the turtleBot
+   */
+  ros::Timer Rotatetimer;
+  /**
+   * @brief registers timer for camera service
+   */
+  ros::Timer camTimer;
+  /**
+   * @brief registers publisher for action(twist) messages
+   */
+  ros::Publisher actionPub;
+
 };
-
-
 
 #endif /* TERRAPINAVIGATOR_INCLUDE_TERRAPINAVIGATOR_TURTLE_H_ */

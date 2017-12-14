@@ -30,14 +30,6 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 /**
- *  @file walker.cpp
- *
- *  @brief Implementation of Navigator class
- *
- *  @author Pranav Inani
- *  @copyright 2017
- */
-/**
  *  @file main.cpp
  *
  *  @brief Demo for the project
@@ -50,32 +42,17 @@
 #include "sensor_msgs/LaserScan.h"
 #include "geometry_msgs/Twist.h"
 #include "terrapinavigator/Navigator.h"
-#include <random>
-
 #include "../include/terrapinavigator/Turtle.h"
 
 int main(int argc, char **argv) {
   ros::init(argc, argv, "terrapinavigator");
   ros::NodeHandle n;
   Turtle terrapin = Turtle();
-  // sleep for 15 seconds while gazebo starts
+  // sleep for 15 seconds while other packages start
   ros::Duration(15).sleep();
-
   ros::Rate loop_rate(2);
   while (ros::ok()) {
-
-  terrapin.explore();
-//  ros::Subscriber subLaserScan;
-//  ros::Publisher pub;
-  // geometry_msgs::Twist msg;
-//  subLaserScan = n.subscribe("/scan", 1000, &Walker::callback, &walk);
-//  pub = n.advertise < geometry_msgs::Twist
-//      > ("/mobile_base/commands/velocity", 100);
-//  ros::Rate loop_rate(2);
-  // Initialize the twist messsage
-//  int count = 0;
-//  ros::Timer timer = n.createTimer(ros::Duration(45), &Walker::timerCallback,
-//                                   &walk);
+    terrapin.explore();
     ros::spinOnce();
     loop_rate.sleep();
   }

@@ -43,14 +43,11 @@
 #include "geometry_msgs/Twist.h"
 #include "terrapinavigator/Navigator.h"
 
-
-
 Navigator::Navigator()
     : rotateFlag(true),
       obstDist(0),
       rotateCount(0) {
 }
-
 
 float Navigator::getObstDist() {
   return obstDist;
@@ -71,19 +68,19 @@ void Navigator::ScanCallback(const sensor_msgs::LaserScan::ConstPtr& input) {
       min = dist;
     }
   }
-  obstDist = min;
+  obstDist = min;  // Finds distance to obstacle
   ROS_DEBUG_STREAM("Distance to obstacle: " << obstDist);
 }
 
 void Navigator::RotatetimerCallback(const ros::TimerEvent& event) {
   if (obstDist > .75) {
-    rotateFlag = true;
+    rotateFlag = true;  // sets rotate flag every 45 seconds if no obstacle present
     ROS_INFO_STREAM("Rotating in place to aid mapping");
   }
 }
 
 geometry_msgs::Twist Navigator::dir() {
-  // Initialize the twist messsage
+  // Initialize the twist message
   action.linear.x = 0.0;
   action.linear.y = 0.0;
   action.linear.z = 0.0;
@@ -92,10 +89,11 @@ geometry_msgs::Twist Navigator::dir() {
   action.angular.z = 0.0;
   rotateCount++;
 
-  std::random_device rd; /* used to initialize (seed) engine*/
-  std::mt19937 rng(rd()); /* random-number engine used (Mersenne-Twister)*/
-  std::uniform_int_distribution<int> uni(30, 100); /* guaranteed unbiased*/
-  float randomAngle = uni(rng);
+  std::random_device rd;  // used to initialize (seed) engine //
+  std::mt19937 rng(rd());  // random-number engine used (Mersenne-Twister) //
+  std::uniform_int_distribution<int> uni(30, 100);  // guaranteed unbiased //
+  float randomAngle = uni(rng);  // random number between 30 and 100
+  // Stops and rotates the turtleBot in place 5 times
   if (rotateFlag) {
     action.angular.z = 360 * (3.14 / 180);
   }
@@ -117,4 +115,5 @@ geometry_msgs::Twist Navigator::dir() {
 
 }
 
-
+Navigator::~Navigator() {
+}
