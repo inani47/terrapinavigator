@@ -197,7 +197,9 @@ sudo apt install libgnome2-bin
 ## Running Rostest
 To run rostest, in a new terminal:
 ```
-cd ~/catkin_ws/build
+cd ~/catkin_ws/
+source devel/setup.bash
+cd build/
 make run_tests
 ```
 ### Code Coverage Output Using lcov
