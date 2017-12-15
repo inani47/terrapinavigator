@@ -3,21 +3,36 @@
 # terrapinavigator - Navigation and Mapping with TurtleBot 
 
 ## Overview
-This project aims to implement a simulated TurtleBot capable of navigating and mapping. The robotic system aims to be capable of:
-1. Navigating Unknown Environments and simultaneously mapping it.
-2. Navigating a known environment from point A to point B.
-Additionally, the robotic system will have a service be capable of taking photographs at any desired time.
-The project will be implemented using Gazebo, Rviz and ROS (and its various packages and libraries.
+This project is an implementation of a simulated robotic system capable of navigation and mapping of unknown environments. The project was immplemented on the TurtleBot platform using Gazebo, Rviz and ROS (and its various packages and libraries eg. gmapping).
+The developed system is capable of:
+* navigating unknown environments
+* robust in avoiding obstacles 
+* simultaneously mapping the environment and
+* takes pictures at regular intervals or when desired by the user
+
 
 Few applications of the projects include:
 1. Navigation of known environments like offices and factories.
 2. Explorer bot to aid rescue efforts during natural disasters.
 3. Remote Survaillence 
 
+The project was programmed in the C++ programming language and uses with C++ 11/14 features with ephasis given to Object Oriented Programming principles. The code follows the Google C++ Styleguide with cpplint validation. Cppcheck was also used for static code analysis. This project followed Test-driven Development to guide implementation and uses unit tests to test the code coverage written using Google Test framework. The entire code was written and debugged using the Eclipse IDE. The code follows doxygen-formatted comments to aid doxygen documentation.
+
+The project was completed in about three weeks time.  This project was implemented by following the Solo Iterative Process(SIP). This included the creation of a product backlog using the requirements and ordering them in the order of their priority. Finally, the software was developed over three sprints which were one week long in duration. The first week focused on the planning and design of the project inculding the initial UML diagrams. The second week involved the programming of the actual module. In the third week, the remainder of programming aspect of the project was completed and a video presentation was created (link in SIP & Sprint Logs section).
+
+## Example outputs
+
+### Final Map Example
+
+![finalmap](https://user-images.githubusercontent.com/31521157/34059472-2dce52de-e1ad-11e7-9c35-8bc2ac10b1d1.jpg)
+
+### Picture Service Example
+![pictureServiceExample](https://raw.githubusercontent.com/inani47/terrapinavigator/master/outputs/pictures/turtleBotImage1512864439.161703.jpg)
+
 
 ## About the Developer
 
-I am Pranav Inani. I am currently pursing my masters in Robotics at University of Maryland - College Park. I hold a Bachelors degree in Mechatronics from Mahatma Gandhi Instite of Technology, India. I have worked for a small start-up geared towards solving the self-driving car problem in India (a completely different challenge altogether). I wish to pursue a career in Robotics with a focus in Artificial Intelligence.
+I am Pranav Inani. I am currently pursing my masters in Robotics at University of Maryland - College Park. I hold a Bachelors degree in Mechatronics from Mahatma Gandhi Institute of Technology, India. I have worked for a small start-up geared towards solving the self-driving car problem in India (a completely different challenge altogether). I wish to pursue a career in Robotics with a focus in Artificial Intelligence.
 Few modest projects I was a part of:
 1. Lane Marker Detection Using DBScan Clustering Algorithm.
 2. AStar Path Planning Algorithm.
@@ -118,6 +133,8 @@ cd ..
 catkin_make
 ```
 ## Running the Demo Using Launch File
+To run the demo we need to run two launch files. First launch file loads the Gazebo environment and runs the terrapinavigator node to explore and map the environment. The seconds lauch file loads rviz (for visualization) and gmapping (for SLAM and Mapping).
+
 After following the build instructions:
 
 To run the demo, in a new terminal:
@@ -134,6 +151,7 @@ roslaunch terrapinavigator demo.launch
 ```
 
 This will start the gmapping package and load rviz for visualization.
+
 Note: You may close the gazebo window if your rig can't handle the load and continue to use rviz for visualization.
 
 ### Saving the Map
@@ -177,6 +195,7 @@ rosbag play recording.bag
 ```
 ### Running Picture Service From Command Line
 The demo implementation is such that a picture is taken every 40 seconds and it gets stored in the ros folder with file name "termpImage" followed by the current time stamp at the time of takin the picture.
+
 If you wish to manually click a picture while the demo is running at any desired time. In a new terminal:
 ```
 cd ~/catkin_ws/
@@ -192,6 +211,7 @@ The files will get saved in ./ros folder. To view the files. In a terminal:
 gnome-open ~/.ros
 ```
 This will open the ./ros folder using the GUI and you can see all the pictures taken manually as well as those autmatically taken every 40 seconds in the demo.
+
 Note: If you do not have gnome-open installed. In a terminal:
 ```
 sudo apt install libgnome2-bin
