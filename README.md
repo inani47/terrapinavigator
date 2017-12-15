@@ -67,6 +67,7 @@ To run this program you need to have the following installed on your system:
 * Turtlebot simulation stack
 * Gmapping
 * map_server
+
 To install ROS, use this [link](http://wiki.ros.org/kinetic/Installation)
 
 To install turtlebot simulation stack. In a terminal:
@@ -88,6 +89,7 @@ To install Map_server, In a terminal:
 ## SIP & Sprint Logs
 
 Link to SIP Planning: [SIP Logs](https://docs.google.com/spreadsheets/d/1yglRR3HuQ96tQThB4AsiW9a2gjR8kYN-1Wcj_BuyqH0/edit?usp=sharing)
+
 Link to Sprint Planning Notes: [Sprint Notes](https://docs.google.com/document/d/1rXK6foPKe-qIE33yUQAk5DwvEb2_a-keuWt45c4f9LM/edit)
 
 
@@ -132,7 +134,7 @@ roslaunch terrapinavigator demo.launch
 This will start the gmapping package and load rviz for visualization.
 Note: You may close the gazebo window if your rig can't handle the load and continue to use rviz for visualization.
 
-## Saving the Map
+### Saving the Map
 Once you are happy with the map created. To save a map, in a new terminal:
 ```
 rosrun map_server map_saver -f <map_name>
@@ -141,6 +143,38 @@ To view the saved map. In a new terminal
 ```
 eog <map_name>.pgm
 ```
+
+### Recording, Inspecting and Playing back bag files
+To enable bag file recording of all topics except camera. While launching the demo, in a new terminal:
+```
+cd ~/catkin_ws/
+source devel/setup.bash
+roslaunch terrapinavigator terrpainavigator.launch rec:=1
+```
+This will save a bag file in the results folder of the package.
+
+To inspect the bag file, In a new terminal:
+```
+cd ~/catkin_ws/
+source devel/setup.bash
+cd src/terrapinavigator/results
+rosbag info recording.bag
+```
+
+
+To replay the bag file, first run rosmaster from a terminal:
+```
+roscore
+```
+Now, from the results folder run the following command in a new terminal:
+```
+cd ~/catkin_ws/
+source devel/setup.bash
+cd src/terrapinavigator/results
+rosbag play recording.bag
+```
+
+
 ## Running Rostest
 To run rostest, in a new terminal:
 ```
