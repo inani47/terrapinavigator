@@ -173,7 +173,18 @@ source devel/setup.bash
 cd src/terrapinavigator/results
 rosbag play recording.bag
 ```
-
+### Running Picture Service From Command Line
+The demo implementation is such that a picture is taken every 40 seconds and it gets stored in the ros folder with file name "termpImage" followed by the current time stamp at the time of takin the picture.
+If you wish to manually click a picture while the demo is running at any desired time. In a new terminal:
+```
+cd ~/catkin_ws/
+source devel/setup.bash
+rosservice call /pictureService "reqImg: true" 
+```
+If the image was taken succesfully you will see the following output:
+```
+clickImg: True
+```
 
 ## Running Rostest
 To run rostest, in a new terminal:
@@ -181,8 +192,10 @@ To run rostest, in a new terminal:
 cd ~/catkin_ws/build
 make run_tests
 ```
+### Code Coverage Output Using lcov
+![Code Coverage](https://user-images.githubusercontent.com/31521157/34026729-fee76d8e-e125-11e7-8342-f9dcf03d3111.png)
 ## Known Issues/Bugs 
-NONE
+* Unable to show code coverage using coveralls. Added lcov output to the readme instead
 
 ## API and other developer documentation
 
