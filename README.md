@@ -92,7 +92,7 @@ Link to SIP Planning: [SIP Logs](https://docs.google.com/spreadsheets/d/1yglRR3H
 
 Link to Sprint Planning Notes: [Sprint Notes](https://docs.google.com/document/d/1rXK6foPKe-qIE33yUQAk5DwvEb2_a-keuWt45c4f9LM/edit)
 
-Link to the video presentation uploaded on youtube: [Presentation Video](https://youtu.be/LKTurhPMYeM)
+Link to the video presentation uploaded on youtube: [Presentation Video](https://youtu.be/ouJtWGgyxr0)
 
 
 
