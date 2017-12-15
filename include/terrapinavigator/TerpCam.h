@@ -44,7 +44,7 @@
 #include <string>
 #include <vector>
 #include <iostream>
-#include <terrapinavigator/pictureService.h>
+#include "terrapinavigator/pictureService.h"
 #include <sensor_msgs/Image.h>
 
 
