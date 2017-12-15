@@ -185,7 +185,15 @@ If the image was taken succesfully you will see the following output:
 ```
 clickImg: True
 ```
-
+The files will get saved in ./ros folder. To view the files. In a terminal:
+```
+gnome-open ~/.ros
+```
+This will open the ./ros folder using the GUI and you can see all the pictures taken manually as well as those autmatically taken every 40 seconds in the demo.
+Note: If you do not have gnome-open installed. In a terminal:
+```
+sudo apt install libgnome2-bin
+```
 ## Running Rostest
 To run rostest, in a new terminal:
 ```
@@ -220,6 +228,5 @@ cd docs
 cd html
 firefox index.html
 ```
-
 
 
