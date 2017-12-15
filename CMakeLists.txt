@@ -211,6 +211,7 @@ include_directories(
 
 if(CATKIN_ENABLE_TESTING)
   find_package(rostest REQUIRED)
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -O0 --coverage")
   add_rostest_gtest(terpTest test/terrapinavigatorTest.launch test/terpTest.cpp test/TurtleTest.cpp test/NavigatorTest.cpp test/TerpCamTest.cpp src/Navigator.cpp  src/TerpCam.cpp src/Turtle.cpp)
   target_link_libraries(terpTest ${catkin_LIBRARIES})
     add_dependencies(
