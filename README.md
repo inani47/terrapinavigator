@@ -12,9 +12,9 @@ The developed system is capable of:
 
 
 Few applications of the projects include:
-1. Navigation of known environments like offices and factories.
-2. Explorer bot to aid rescue efforts during natural disasters.
-3. Remote Survaillence 
+* Navigation of known environments like offices and factories.
+* Explorer bot to aid rescue efforts during natural disasters.
+* Remote Survaillence 
 
 The project was programmed in the C++ programming language and uses with C++ 11/14 features with ephasis given to Object Oriented Programming principles. The code follows the Google C++ Styleguide with cpplint validation. Cppcheck was also used for static code analysis. This project followed Test-driven Development to guide implementation and uses unit tests to test the code coverage written using Google Test framework. The entire code was written and debugged using the Eclipse IDE. The code follows doxygen-formatted comments to aid doxygen documentation.
 
@@ -34,10 +34,10 @@ The project was completed in about three weeks time.  This project was implement
 
 I am Pranav Inani. I am currently pursing my masters in Robotics at University of Maryland - College Park. I hold a Bachelors degree in Mechatronics from Mahatma Gandhi Institute of Technology, India. I have worked for a small start-up geared towards solving the self-driving car problem in India (a completely different challenge altogether). I wish to pursue a career in Robotics with a focus in Artificial Intelligence.
 Few modest projects I was a part of:
-1. Lane Marker Detection Using DBScan Clustering Algorithm.
-2. AStar Path Planning Algorithm.
-3. Design and Fabrication of Quadcopter with Integrated End-Effector.
-4. Home automation Using Raspberry Pi and Arduino.
+* Lane Marker Detection Using DBScan Clustering Algorithm.
+* AStar Path Planning Algorithm.
+* Design and Fabrication of Quadcopter with Integrated End-Effector.
+* Home automation Using Raspberry Pi and Arduino.
 
 ## Disclaimer
 
@@ -163,6 +163,29 @@ To view the saved map. In a new terminal
 ```
 eog <map_name>.pgm
 ```
+### Running Picture Service From Command Line
+The demo implementation is such that a picture is taken every 40 seconds and it gets stored in the ros folder with file name "termpImage" followed by the current time stamp at the time of takin the picture.
+
+If you wish to manually click a picture while the demo is running at any desired time. In a new terminal:
+```
+cd ~/catkin_ws/
+source devel/setup.bash
+rosservice call /pictureService "reqImg: true" 
+```
+If the image was taken succesfully you will see the following output:
+```
+clickImg: True
+```
+The files will get saved in ./ros folder. To view the files. In a terminal:
+```
+gnome-open ~/.ros
+```
+This will open the ./ros folder using the GUI and you can see all the pictures taken manually as well as those autmatically taken every 40 seconds in the demo.
+
+Note: If you do not have gnome-open installed. In a terminal:
+```
+sudo apt install libgnome2-bin
+```
 
 ### Recording, Inspecting and Playing back bag files
 To enable bag file recording of all topics except camera. While launching the demo, in a new terminal:
@@ -193,29 +216,7 @@ source devel/setup.bash
 cd src/terrapinavigator/results
 rosbag play recording.bag
 ```
-### Running Picture Service From Command Line
-The demo implementation is such that a picture is taken every 40 seconds and it gets stored in the ros folder with file name "termpImage" followed by the current time stamp at the time of takin the picture.
 
-If you wish to manually click a picture while the demo is running at any desired time. In a new terminal:
-```
-cd ~/catkin_ws/
-source devel/setup.bash
-rosservice call /pictureService "reqImg: true" 
-```
-If the image was taken succesfully you will see the following output:
-```
-clickImg: True
-```
-The files will get saved in ./ros folder. To view the files. In a terminal:
-```
-gnome-open ~/.ros
-```
-This will open the ./ros folder using the GUI and you can see all the pictures taken manually as well as those autmatically taken every 40 seconds in the demo.
-
-Note: If you do not have gnome-open installed. In a terminal:
-```
-sudo apt install libgnome2-bin
-```
 ## Running Rostest
 To run rostest, in a new terminal:
 ```
@@ -228,6 +229,9 @@ make run_tests
 ![Code Coverage](https://user-images.githubusercontent.com/31521157/34026729-fee76d8e-e125-11e7-8342-f9dcf03d3111.png)
 ## Known Issues/Bugs 
 * Unable to show code coverage using coveralls. Added lcov output to the readme instead
+* When gazebo initializes it  throws some errors of missing plugins and thi followin error:
+  SpawnModel: Failure - model name mobile_base already exist.
+  However, these make no difference to the demo. The latter error maybe resolved once ros answers is back online.
 
 ## API and other developer documentation
 
